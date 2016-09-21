@@ -1,0 +1,30 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '1.2.3'
+}
+
+group 'com.lukaszgielecinski'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.4.9'
+    compile group: 'com.jayway.jsonpath', name: 'json-path', version: '2.2.0'
+
+}
+
+shadowJar {
+    baseName = 'zookeeper-query'
+    classifier = ''
+}
+
+mainClassName="ZookeeperQuery"
